@@ -1,0 +1,31 @@
+st=>start: Start
+io1=>inputoutput: Loan Application
+sub1=>subroutine: Check Completeness
+cond1=>condition: Application Complete?
+io2=>inputoutput: Credit History Report
+sub2=>subroutine: Loan Risk Assessment
+io3=>inputoutput: Property Appraisal Report
+sub3=>subroutine: Assess Applicant Eligibility
+io4=>inputoutput: Acceptance Pack
+cond2=>condition: Applicant Agree to Repayment Schedule?
+sub4=>subroutine: Verify Repayment Agreement
+end=>end: End
+
+officer=>participant: Financial Officer
+appraiser=>participant: Property Appraiser
+sales=>participant: Insurance Sales Rep
+officer2=>participant: Loan Officer
+
+st->io1
+io1->sub1->cond1
+cond1(no)->sub1
+cond1(yes)->io2
+io2->sub2->officer
+officer->sub3->appraiser
+appraiser->sub3
+sub3->sales
+sales->sub4
+sub4->cond2
+cond2(no)->sub4
+cond2(yes)->io4->officer2
+officer2->end
