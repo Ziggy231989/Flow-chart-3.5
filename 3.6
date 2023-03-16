@@ -1,0 +1,39 @@
+st=>start: Start
+e=>end: End
+op1=>operation: Check Application Completeness
+op2=>operation: Check Applicant's Credit History
+op3=>operation: Appraise Property
+op4=>operation: Assess Applicant's Eligibility
+op5=>operation: Prepare Acceptance Pack
+op6=>operation: Send Home Insurance Quote
+op7=>operation: Verify Repayment Agreement
+io1=>inputoutput: Loan Application
+io2=>inputoutput: Loan Application Fields Required
+io3=>inputoutput: Credit History Report
+io4=>inputoutput: Risk Assessment Result
+io5=>inputoutput: Property Appraisal Report
+io6=>inputoutput: Acceptance Pack
+io7=>inputoutput: Applicant Must Accept All Loan Conditions & Agree to Repayment Schedule
+io8=>inputoutput: Repayment Agreement
+sub1=>subroutine: Loan Officer
+sub2=>subroutine: Insurance Sales Representative
+sub3=>subroutine: Financial Officer
+sub4=>subroutine: Property Appraiser
+cond1=>condition: Is Application Complete?
+cond2=>condition: Is Applicant Eligible?
+cond3=>condition: Is Home Insurance Quote Required?
+
+st->op1->cond1
+cond1(no)->io2->op1
+cond1(yes)->io1->sub1
+sub1->io3->sub3
+sub1->io5->sub4
+sub1->op2->cond2
+cond2(no)->e
+cond2(yes)->op3->op4->cond3
+cond3(no)->op5->op7->io7->e
+cond3(yes)->op6->op5->op7->io7->e
+op7->io8->sub1
+op5->io6->sub1
+op6->sub2
+
