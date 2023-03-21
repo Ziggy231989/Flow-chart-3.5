@@ -1,0 +1,19 @@
+<process>
+    <input>Request for compensation from owner</input>
+    <action>Cashier retrieves file for premises and checks request</action>
+    <decision>
+        <condition>Request is acceptable for filing and compliant with premises description on file</condition>
+        <true>
+            <decision>
+                <condition>Owner has paid fees</condition>
+                <true>Allocate hearing date and complete process</true>
+                <false>Produce fees notice and wait for owner to pay fees</false>
+            </decision>
+            <action>Generate receipt for fees</action>
+        </true>
+        <false>Reject request and notify owner</false>
+    </decision>
+    <action>Allocate hearing date</action>
+    <action>Generate receipt for fees</action>
+    <output>Process completed</output>
+</process>
