@@ -1,0 +1,11 @@
+<process>
+    <input>Claim registration</input>
+    <action>Claims officer examines claim and writes a settlement recommendation</action>
+    <action>Senior claims officer checks settlement recommendation</action>
+    <decision>
+        <condition>Claim is "Not OK"</condition>
+        <true>Send recommendation back to claims officer and repeat</true>
+        <false>Proceed with claim handling process</false>
+    </decision>
+    <output>Process completed</output>
+</process>
