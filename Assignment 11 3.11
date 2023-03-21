@@ -1,0 +1,12 @@
+<process>
+    <input>New credit request</input>
+    <action>Assess risk</action>
+    <decision>
+        <condition>Risk > threshold</condition>
+        <true>Perform advanced risk assessment</true>
+        <false>Perform simple risk assessment</false>
+    </decision>
+    <action>Notify customer of assessment result</action>
+    <action>Organize disbursement</action>
+    <output>Process completed</output>
+</process>
